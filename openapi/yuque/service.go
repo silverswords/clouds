@@ -45,7 +45,7 @@ func (s *Service) List(repoid string) (string, error) {
 
 // Details -
 func (s *Service) Details(repoid, id string) (string, error) {
-	url := fmt.Sprintf(ListURL, repoid, id)
+	url := fmt.Sprintf(DetailURL, repoid, id)
 	request, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return "", err
@@ -70,7 +70,7 @@ func (s *Service) Details(repoid, id string) (string, error) {
 
 // Repo -
 func (s *Service) Repo(groupid string) (string, error) {
-	url := fmt.Sprintf(ListURL, groupid)
+	url := fmt.Sprintf(RepoURL, groupid)
 	request, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return "", err
