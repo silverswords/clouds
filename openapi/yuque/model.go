@@ -1,7 +1,16 @@
-package model
+package yuque
 
-// Details -
-var Details struct {
+var (
+	// DetailURL -
+	DetailURL = "https://www.yuque.com/api/v2/repos/%s/docs/%s?raw=0"
+	// ListURL -
+	ListURL = "https://www.yuque.com/api/v2/repos/%s/docs/"
+	// RepoURL -
+	RepoURL = "https://www.yuque.com/api/v2/groups/%s/repos/"
+)
+
+// DetailBody -
+var DetailBody struct {
 	Abilities Abilities  `json:"abilities"`
 	Data      DetailData `json:"detaildata"`
 }
@@ -95,8 +104,8 @@ type DetailData struct {
 	Serializer        string `json:"_serializer"`
 }
 
-// List -
-var List struct {
+// ListBody -
+var ListBody struct {
 	Data []ListDate `json:"data"`
 }
 
@@ -143,8 +152,8 @@ type ListDate struct {
 	Serializer string `json:"_serializer"`
 }
 
-// Repo -
-var Repo struct {
+// RepoBody -
+var RepoBody struct {
 	Data []RepoDate `json:"data"`
 }
 
