@@ -1,4 +1,4 @@
-package core
+package context
 
 import (
 	"encoding/json"
