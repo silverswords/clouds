@@ -2,7 +2,6 @@ package core
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"net/http"
 )
 
@@ -51,29 +50,4 @@ func (c *Context) BindJSON(obj interface{}) error {
 	err := decoder.Decode(obj)
 
 	return err
-}
-
-// CallAPI -
-func (c *Context) CallAPI(url string) ([]byte, error) {
-	request, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-
-	Token := c.Request.Header
-	request.Header.Add("X-Auth-Token", Token["X-Auth-Token"][0])
-
-	client := &http.Client{}
-	response, err := client.Do(request)
-	if err != nil {
-		return nil, err
-	}
-	defer response.Body.Close()
-
-	body, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		return nil, err
-	}
-
-	return body, nil
 }
