@@ -22,6 +22,7 @@ func NewService(token string) *Service {
 // List -
 func (s *Service) List(repoid string) (interface{}, error) {
 	var List BookDetail
+
 	url := fmt.Sprintf(ListURL, repoid)
 	request, err := http.NewRequest("GET", url, nil)
 	if err != nil {
@@ -53,6 +54,7 @@ func (s *Service) List(repoid string) (interface{}, error) {
 // Details -
 func (s *Service) Details(repoid, id string) (interface{}, error) {
 	var Details DocDetail
+
 	url := fmt.Sprintf(DetailURL, repoid, id)
 	request, err := http.NewRequest("GET", url, nil)
 	if err != nil {
