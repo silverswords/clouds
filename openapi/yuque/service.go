@@ -7,19 +7,19 @@ import (
 	"net/http"
 )
 
-// Service -
+// Service encapsulate authenticated token
 type Service struct {
 	Token string
 }
 
-// NewService -
+// NewService create Service for external use
 func NewService(token string) *Service {
 	return &Service{
 		Token: token,
 	}
 }
 
-// List -
+// List return a list of repositories in the group
 func (s *Service) List(repoid string) (interface{}, error) {
 	var List BookDetail
 
@@ -51,7 +51,7 @@ func (s *Service) List(repoid string) (interface{}, error) {
 	return List, nil
 }
 
-// Details -
+// Details rerurn a yuque document of detail contents
 func (s *Service) Details(repoid, id string) (interface{}, error) {
 	var Details DocDetail
 
@@ -83,7 +83,7 @@ func (s *Service) Details(repoid, id string) (interface{}, error) {
 	return Details, nil
 }
 
-// Repo -
+// Repo return a list of repositories in the group
 func (s *Service) Repo(groupid string) (interface{}, error) {
 	var Repo Book
 

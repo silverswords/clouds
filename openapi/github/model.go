@@ -1,13 +1,13 @@
 package github
 
 var (
-	// GitHubRepoTrendURL -
+	// GitHubRepoTrendURL GitHub reposisories trending API
 	GitHubRepoTrendURL = "https://github-trending-api.now.sh/repositories?language=%s&since=%s"
-	// GitHubDevelTrendURL -
-	GitHubDevelTrendURL = "https://github-trending-api.now.sh/developers?language=%s&since=%s"
+	// GitHubDeveloperTrendURL GitHub developer trending API
+	GitHubDeveloperTrendURL = "https://github-trending-api.now.sh/developers?language=%s&since=%s"
 )
 
-// RepoTrend -
+// RepoTrend GitHub repositories trending JSON structure
 type RepoTrend []struct {
 	Author             string `json:"author"`
 	Name               string `json:"name"`
@@ -26,8 +26,8 @@ type RepoTrend []struct {
 	} `json:"builtBy"`
 }
 
-// DevelTrend -
-type DevelTrend []struct {
+// DeveloperTrend GitHub developers trending JSON structure
+type DeveloperTrend []struct {
 	Username string `json:"username"`
 	Name     string `json:"name"`
 	Type     string `json:"type"`

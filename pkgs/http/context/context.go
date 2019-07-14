@@ -19,13 +19,13 @@ var (
 // H is a shortcut for map[string]interface{}
 type H map[string]interface{}
 
-// Context -
+// Context encapsulate http.ResponseWriter and http.Request
 type Context struct {
 	Request  *http.Request
 	Response http.ResponseWriter
 }
 
-// NewContext -
+// NewContext create Context for external use
 func NewContext(w http.ResponseWriter, r *http.Request) *Context {
 	return &Context{
 		Request:  r,
@@ -68,7 +68,7 @@ const (
 	MIMEMultipartPOSTForm = "multipart/form-data"
 )
 
-// ShouldBind -
+// ShouldBind Bind data
 func (c *Context) ShouldBind(obj interface{}) error {
 	b := Default(c.Request.Method, c.ContentType())
 	return c.ShouldBindWith(obj, b)

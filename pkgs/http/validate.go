@@ -17,7 +17,7 @@ type defaultValidator struct {
 	validate *validator.Validate
 }
 
-// Validate -
+// Validate validate data
 func Validate(obj interface{}) error {
 	return Validator.ValidateStruct(obj)
 }

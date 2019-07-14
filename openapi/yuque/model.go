@@ -3,15 +3,15 @@ package yuque
 import "time"
 
 var (
-	// DetailURL -
+	// DetailURL API about document detail contents
 	DetailURL = "https://www.yuque.com/api/v2/repos/%s/docs/%s?raw=0"
-	// ListURL -
+	// ListURL API about a list of articles in the library
 	ListURL = "https://www.yuque.com/api/v2/repos/%s/docs/"
-	// RepoURL -
+	// RepoURL API about a list of repositories in the group
 	RepoURL = "https://www.yuque.com/api/v2/groups/%s/repos/"
 )
 
-// DocDetail -
+// DocDetail JSON structure for a yuque document detail contents
 type DocDetail struct {
 	Abilities struct {
 		Update  bool `json:"update"`
@@ -100,7 +100,7 @@ type DocDetail struct {
 	} `json:"data"`
 }
 
-// BookDetail -
+// BookDetail  JSON structure for a list of articles in the library
 type BookDetail struct {
 	Data []struct {
 		ID                int         `json:"id"`
@@ -145,7 +145,7 @@ type BookDetail struct {
 	} `json:"data"`
 }
 
-// Book -
+// Book JSON structure for a list of repositories in the group
 type Book struct {
 	Data []struct {
 		ID               int       `json:"id"`
