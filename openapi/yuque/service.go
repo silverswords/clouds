@@ -20,10 +20,10 @@ func NewService(token string) *Service {
 }
 
 // List return a list of repositories in the group
-func (s *Service) List(repoid string) (interface{}, error) {
+func (s *Service) List(Repoid string) (interface{}, error) {
 	var List BookDetail
 
-	url := fmt.Sprintf(ListURL, repoid)
+	url := fmt.Sprintf(ListURL, Repoid)
 	request, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return nil, err
@@ -52,10 +52,10 @@ func (s *Service) List(repoid string) (interface{}, error) {
 }
 
 // Details rerurn a yuque document of detail contents
-func (s *Service) Details(repoid, id string) (interface{}, error) {
+func (s *Service) Details(RepoID, ID string) (interface{}, error) {
 	var Details DocDetail
 
-	url := fmt.Sprintf(DetailURL, repoid, id)
+	url := fmt.Sprintf(DetailURL, RepoID, ID)
 	request, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return nil, err
@@ -84,10 +84,10 @@ func (s *Service) Details(repoid, id string) (interface{}, error) {
 }
 
 // Repo return a list of repositories in the group
-func (s *Service) Repo(groupid string) (interface{}, error) {
+func (s *Service) Repo(GroupID string) (interface{}, error) {
 	var Repo Book
 
-	url := fmt.Sprintf(RepoURL, groupid)
+	url := fmt.Sprintf(RepoURL, GroupID)
 	request, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return nil, err
