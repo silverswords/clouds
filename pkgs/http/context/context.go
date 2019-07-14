@@ -35,7 +35,7 @@ func NewContext(w http.ResponseWriter, r *http.Request) *Context {
 
 // WriteJSON ResponseWriter
 func (c *Context) WriteJSON(code int, obj interface{}) {
-	c.Response.WriteHeader(code)
+	//c.Response.WriteHeader(code)
 
 	header := c.Response.Header()
 	if val := header["Content-Type"]; len(val) == 0 {
