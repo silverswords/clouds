@@ -44,7 +44,7 @@ func (s *Service) Contributor(Owner string, Repo string) (interface{}, error) {
 		return nil, err
 	}
 
-	request.Header.Add("Authorization", s.Token)
+	request.Header.Add("Authorization", "token "+s.Token)
 
 	client := &http.Client{}
 	response, err := client.Do(request)
