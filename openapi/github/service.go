@@ -22,50 +22,6 @@ func NewAPIClient(g *http.Client) *APIClient {
 	}
 }
 
-// Service encapsulate authenticated token
-type Service struct {
-	Token string
-}
-
-// NewService create Service for external use
-func NewService(token string) *Service {
-	return &Service{
-		Token: token,
-	}
-}
-
-// Contributor return contributors list with additions, deletions, and commit counts
-func (s *Service) Contributor(Owner string, Repo string) (interface{}, error) {
-	var Contributors RepoContributor
-	url := fmt.Sprintf(GitHubRepoContributorURL, Owner, Repo)
-
-	request, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-
-	request.Header.Add("Authorization", "token "+s.Token)
-
-	client := &http.Client{}
-	response, err := client.Do(request)
-	if err != nil {
-		return nil, err
-	}
-	defer response.Body.Close()
-
-	body, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		return nil, err
-	}
-
-	err = json.Unmarshal(body, &Contributors)
-	if err != nil {
-		return nil, err
-	}
-
-	return Contributors, nil
-}
-
 // RepoTrending return an array of trending repositories.
 func RepoTrending(language string, datarange string) (interface{}, error) {
 	var RepoTrendModel RepoTrend
