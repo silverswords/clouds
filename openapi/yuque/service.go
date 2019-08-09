@@ -21,7 +21,7 @@ func NewService(token string) *Service {
 
 //UserInfo return information for the authorized user
 func (s *Service) UserInfo() (interface{}, error) {
-	var User UserInfo
+	var User Info
 
 	request, err := http.NewRequest("GET", UserURL, nil)
 	if err != nil {

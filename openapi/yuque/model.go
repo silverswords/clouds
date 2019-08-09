@@ -17,8 +17,8 @@ var (
 	RepoURL = "https://www.yuque.com/api/v2/groups/%s/repos/"
 )
 
-//UserInfo JSON structure for the authorized user
-type UserInfo struct {
+//Info JSON structure for the authorized user
+type Info struct {
 	Data struct {
 		ID               int       `json:"id"`
 		Type             string    `json:"type"`
